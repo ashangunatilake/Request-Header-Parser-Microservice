@@ -1,37 +1,28 @@
-# Timestamp Microservice
+# Request Header Parser Microservice
 
-This is a solution to the [Timestamp Microservice](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/timestamp-microservice) challenge from freeCodeCamp's Back End Development and APIs certification.
+This is a solution to the [Request Header Parser Microservice](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/request-header-parser-microservice) challenge from freeCodeCamp's Back End Development and APIs certification.
 
 ## Features
 
-- Accepts a `GET` request to `/api/:date?` where `date` can be a UNIX timestamp or an ISO-8601 formatted date.
-- Returns a JSON object with the following properties:
-  - `unix`: The UNIX timestamp of the date.
-  - `utc`: The UTC string representation of the date.
-- If no `date` is passed, it returns the current date and time.
-- Handles invalid dates gracefully by returning a JSON object with an error message.
+- Provides a `GET` endpoint at `/api/whoami` to parse request headers and return user information.
+- Extracts the following details from the request headers:
+  - **IP address** (`ipaddress`)
+  - **Preferred language** (`language`)
+  - **Software (User Agent)** (`software`)
 
 ## Example Usage
 
 ```bash
-GET /api/2015-12-25
-GET /api/1451001600000
-GET /api
+GET /api/whoami
 ```
 
 ## Example Output
 
 ```bash
 {
-  "unix": 1451001600000,
-  "utc": "Fri, 25 Dec 2015 00:00:00 GMT"
-}
-```
-For invalid dates:
-
-```bash
-{
-  "error": "Invalid Date"
+  "ipaddress": "192.168.1.1",
+  "language": "en-US,en;q=0.9",
+  "software": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 }
 ```
 
@@ -40,12 +31,12 @@ For invalid dates:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/ashangunatilake/timestamp-microservice.git
+git clone https://github.com/ashangunatilake/Request-Header-Parser-Microservice.git
 ```
 
 2. Navigate to the project directory:
 ```bash
-cd timestamp-microservice
+cd Request-Header-Parser-Microservice
 ```
 
 3. Install dependencies:
